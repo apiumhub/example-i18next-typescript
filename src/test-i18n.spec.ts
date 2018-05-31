@@ -49,6 +49,32 @@ describe("my first test", () => {
                 done();
             })
         });
+        const initi18Next=()=>{
+            i18n
+                .use(Backend)
+                .init({
+                    lng: 'en',
+                    debug: true,
+                    backend: {
+                        loadPath: 'http://127.0.0.1:8080/assets/i18n/{{lng}}.json',
+                        ajax: (url:any, options:any, callback:any, data:any) => {
+                            var xhr = new XMLHttpRequest();
+                            xhr.open("GET", url, false)
+                            xhr.send(data)
+                            callback(xhr.responseText, xhr);
+                        }
+                    }
+                });
+        }
+        it("should give the correct literal in SYNC mode", (done) => {
+            //load the default language, which is in http://127.0.0.1:8080/assets/i18n/en.json:
+            initi18Next();
+            //switch the language
+            i18n.changeLanguage("en");
+            const title = i18n.t("title")
+            expect(title).to.eql("Translation demo")
+            done();
+        });
     });
 });
 
