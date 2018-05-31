@@ -39,7 +39,7 @@ describe("my first test", () => {
                     }
                 });
             const changeLanguage = Observable.bindNodeCallback(i18n.changeLanguage.bind(i18n))
-            const langChanged = changeLanguage("en")
+            const langChanged: Observable<any[]> = changeLanguage("en")
             langChanged.subscribe(() => {
                 const title = i18n.t("title")
                 expect(title).to.eql("Translation demo")
