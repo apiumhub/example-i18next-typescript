@@ -12,6 +12,7 @@ import Observer = Rx.Observer;
 describe("my first test", () => {
     describe("looked up a translation", () => {
         it("should give the correct literal", (done) => {
+            //load the default language, which is in http://127.0.0.1:8080/assets/i18n/en.json:
             i18n
                 .use(Backend)
                 .init({
@@ -21,7 +22,9 @@ describe("my first test", () => {
                         loadPath: 'http://127.0.0.1:8080/assets/i18n/{{lng}}.json'
                     }
                 });
+            //switch the language
             i18n.changeLanguage("en", (err, data) => {
+                //once the language has been set, the dictionary is loaded, and it's possible to get the literals all over the app
                 const title = i18n.t("title")
                 expect(title).to.eql("Translation demo")
                 done();
