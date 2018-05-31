@@ -11,4 +11,4 @@
 * advised editor:
 	* babel edit (or any editor for angular/react json files) 
 	
-	
+	                                               	
