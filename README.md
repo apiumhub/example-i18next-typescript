@@ -8,3 +8,5 @@
 	* copy folder ./IDE_Config/runConfigurations in ./idea
 	* restart the IDE
 	* use the imported run configurations (e.g. mocha one)
+	
+	
