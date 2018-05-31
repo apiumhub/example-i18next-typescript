@@ -4,12 +4,6 @@ import * as i18n from 'i18next'
 import * as Backend from 'i18next-xhr-backend';
 
 describe("my first test", () => {
-    describe("should", () => {
-        it("work", (done) => {
-            expect(true).to.be.true
-            done();
-        })
-    })
     describe("looked up a translation", () => {
         it("should give the correct literal", (done) => {
             i18n
