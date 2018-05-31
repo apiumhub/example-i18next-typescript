@@ -8,5 +8,7 @@
 	* copy folder ./IDE_Config/runConfigurations in ./idea
 	* restart the IDE
 	* use the imported run configurations (e.g. mocha one)
+* advised editor:
+	* babel edit (or any editor for angular/react json files) 
 	
 	
