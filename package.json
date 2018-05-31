@@ -12,10 +12,13 @@
   "dependencies": {
     "@types/jquery": "^3.3.2",
     "@types/node": "^10.1.4",
+    "@types/rx": "^4.1.1",
     "i18next-sync-fs-backend": "^1.1.0",
     "i18next-xhr-backend": "^1.5.1",
     "jquery": "^3.3.1",
     "jquery-i18n": "^1.0.1",
+    "rxjs": "^6.2.0",
+    "rxjs-compat": "^6.2.0",
     "ts-node": "^6.0.5"
   },
   "devDependencies": {
