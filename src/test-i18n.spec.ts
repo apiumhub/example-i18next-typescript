@@ -1,8 +1,8 @@
 import {expect} from "chai";
 (<any>global).XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 import * as i18n from 'i18next'
-//import * as Backend from 'i18next-xhr-backend';
-const Backend = require('i18next-sync-fs-backend');
+import * as Backend from 'i18next-xhr-backend';
+//const Backend = require('i18next-sync-fs-backend');
 
 describe("my first test", () => {
     describe("should", () => {
@@ -19,13 +19,14 @@ describe("my first test", () => {
                     lng: 'en',
                     debug: true,
                     backend: {
-                        loadPath: './public/assets/i18n/{{lng}}.json'
+                        loadPath: 'http://127.0.0.1:8080/assets/i18n/{{lng}}.json'
                     }
                 });
-            i18n.changeLanguage("en")
-            const title = i18n.t("title")
-            expect(title).to.eql("Translation demo")
-            done();
+            i18n.changeLanguage("en", (err, data)=>{
+                const title = i18n.t("title")
+                expect(title).to.eql("Translation demo")
+                done();
+            })
         });
     });
 });
