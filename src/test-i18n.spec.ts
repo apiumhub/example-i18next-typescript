@@ -2,7 +2,6 @@ import {expect} from "chai";
 (<any>global).XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 import * as i18n from 'i18next'
 import * as Backend from 'i18next-xhr-backend';
-//const Backend = require('i18next-sync-fs-backend');
 
 describe("my first test", () => {
     describe("should", () => {
