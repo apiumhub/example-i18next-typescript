@@ -2,8 +2,9 @@ module.exports = wallaby => ({
 
     files: [
 
-        {pattern:'src/**/*.ts', instrument: true },
-        { pattern: '**/*.spec.ts', ignore: true }
+        {pattern:'**/*.*', instrument: true },
+        { pattern: '**/*.spec.ts', ignore: true },
+        { pattern: 'node_modules/**/*.*', ignore: true }
 
     ],
 
@@ -28,7 +29,7 @@ module.exports = wallaby => ({
     
 
     testFramework: 'mocha',
-
+    
     
 
     env: {
