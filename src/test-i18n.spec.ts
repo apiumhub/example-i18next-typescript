@@ -49,14 +49,14 @@ describe("my first test", () => {
                 done();
             })
         });
-        const initi18Next=()=>{
+        const initi18Next=(languageFilesUrl:string)=>{
             i18n
                 .use(Backend)
                 .init({
                     lng: 'en',
                     debug: true,
                     backend: {
-                        loadPath: 'http://127.0.0.1:8080/assets/i18n/{{lng}}.json',
+                        loadPath: languageFilesUrl,
                         ajax: (url:any, options:any, callback:any, data:any) => {
                             var xhr = new XMLHttpRequest();
                             xhr.open("GET", url, false)
@@ -69,7 +69,7 @@ describe("my first test", () => {
         it("should give the correct literal in SYNC mode", (done) => {
             //load the default language, which is in http://127.0.0.1:8080/assets/i18n/en.json:
             //loading sync: Christian comment: an example on how monadic solutions are not practical, while coroutines are
-            initi18Next();
+            initi18Next('http://127.0.0.1:8080/assets/i18n/{{lng}}.json');
             //switch the language
             i18n.changeLanguage("en");
             const title = i18n.t("title")
