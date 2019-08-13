@@ -5,6 +5,7 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": true,
+        "outDir": "dist",
         "target": "es2015"
     },
     "include": [

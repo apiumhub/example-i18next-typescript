@@ -4,11 +4,10 @@ import {expect} from "chai";
 import * as i18n from 'i18next'
 import * as Backend from 'i18next-xhr-backend';
 import {Observable, Subject} from 'rxjs';
-import {map, take} from 'rxjs/operators';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/bindNodeCallback';
-import Observer = Rx.Observer;
 import {Module} from "i18next";
+import {initi18Next} from "./test-i18n";
 
 describe("my first test", () => {
     describe("looked up a translation", () => {
@@ -25,7 +24,7 @@ describe("my first test", () => {
                     }
                 });
             //switch the language
-            i18n.changeLanguage("en", (err, data) => {
+            i18n.changeLanguage("en", (err: any, data: any) => {
                 //once the language has been set, the dictionary is loaded, and it's possible to get the literals all over the app
                 const title = i18n.t("title")
                 expect(title).to.eql("Translation demo")
@@ -51,23 +50,6 @@ describe("my first test", () => {
                 done();
             })
         });
-        const initi18Next = (languageFilesUrl: string) => {
-            i18n
-                .use(<Module><any>Backend)
-                .init({
-                    lng: 'en',
-                    debug: true,
-                    backend: {
-                        loadPath: languageFilesUrl,
-                        ajax: (url: any, options: any, callback: any, data: any) => {
-                            var xhr = new XMLHttpRequest();
-                            xhr.open("GET", url, false)
-                            xhr.send(data)
-                            callback(xhr.responseText, xhr);
-                        }
-                    }
-                });
-        }
         describe("used in SYNC mode", () => {
             //load the default language, which is in http://127.0.0.1:8080/assets/i18n/en.json:
             //loading sync: Christian comment: an example on how monadic solutions are not practical, while coroutines are
