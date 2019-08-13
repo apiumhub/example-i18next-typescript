@@ -3,25 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>test</title>
-	<script language="JavaScript">
-        const initi18Next = (languageFilesUrl) => {
-            i18n
-                .use(Backend)
-                .init({
-                    lng: 'en',
-                    debug: true,
-                    backend: {
-                        loadPath: languageFilesUrl,
-                        ajax: (url, options, callback, data) => {
-                            var xhr = new XMLHttpRequest();
-                            xhr.open("GET", url, false);
-                            xhr.send(data);
-                            callback(xhr.responseText, xhr);
-                        }
-                    }
-                });
-        };
-	</script>
 	<script src="../node_modules/i18nextify/dist/umd/i18nextify.js"></script>
 	<script language="JavaScript">
         window.i18nextify.init({
