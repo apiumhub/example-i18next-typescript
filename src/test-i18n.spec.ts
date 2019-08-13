@@ -14,9 +14,9 @@ describe("my first test", () => {
     describe("looked up a translation", () => {
         it("should give the correct literal", (done) => {
             //load the default language, which is in http://127.0.0.1:8080/assets/i18n/en.json:
-            console.log(typeof(Backend));
+            console.log(typeof (Backend));
             i18n
-                .use(<Module> <any> Backend)
+                .use(<Module><any>Backend)
                 .init({
                     lng: 'en',
                     debug: true,
@@ -35,7 +35,7 @@ describe("my first test", () => {
 
         it("should give the correct literal with Rx Observable", (done) => {
             i18n
-                .use(<Module> <any> Backend)
+                .use(<Module><any>Backend)
                 .init({
                     lng: 'en',
                     debug: true,
@@ -51,15 +51,15 @@ describe("my first test", () => {
                 done();
             })
         });
-        const initi18Next=(languageFilesUrl:string)=>{
+        const initi18Next = (languageFilesUrl: string) => {
             i18n
-                .use(<Module> <any> Backend)
+                .use(<Module><any>Backend)
                 .init({
                     lng: 'en',
                     debug: true,
                     backend: {
                         loadPath: languageFilesUrl,
-                        ajax: (url:any, options:any, callback:any, data:any) => {
+                        ajax: (url: any, options: any, callback: any, data: any) => {
                             var xhr = new XMLHttpRequest();
                             xhr.open("GET", url, false)
                             xhr.send(data)
@@ -68,7 +68,7 @@ describe("my first test", () => {
                     }
                 });
         }
-        describe("used in SYNC mode", ()=>{
+        describe("used in SYNC mode", () => {
             //load the default language, which is in http://127.0.0.1:8080/assets/i18n/en.json:
             //loading sync: Christian comment: an example on how monadic solutions are not practical, while coroutines are
             initi18Next('http://127.0.0.1:8080/assets/i18n/{{lng}}.json');
@@ -79,13 +79,13 @@ describe("my first test", () => {
                 expect(title).to.eql("Translation demo")
                 done();
             });
-            it("should give the literal when the key has space", (done)=>{
+            it("should give the literal when the key has space", (done) => {
                 const title = i18n.t("my title")
                 expect(title).to.eql("Translation demo")
                 done();
             })
             it('should give back the key when not present', function (done) {
-                const theKey="my title 2"
+                const theKey = "my title 2"
                 const title = i18n.t(theKey)
                 expect(title).to.eql(theKey)
                 done();
