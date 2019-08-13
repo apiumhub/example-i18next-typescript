@@ -68,15 +68,28 @@ describe("my first test", () => {
                     }
                 });
         }
-        it("should give the correct literal in SYNC mode", (done) => {
+        describe("used in SYNC mode", ()=>{
             //load the default language, which is in http://127.0.0.1:8080/assets/i18n/en.json:
             //loading sync: Christian comment: an example on how monadic solutions are not practical, while coroutines are
             initi18Next('http://127.0.0.1:8080/assets/i18n/{{lng}}.json');
             //switch the language
             i18n.changeLanguage("en");
-            const title = i18n.t("title")
-            expect(title).to.eql("Translation demo")
-            done();
+            it("should still give the correct literal", (done) => {
+                const title = i18n.t("title")
+                expect(title).to.eql("Translation demo")
+                done();
+            });
+            it("should give the literal when the key has space", (done)=>{
+                const title = i18n.t("my title")
+                expect(title).to.eql("Translation demo")
+                done();
+            })
+            it('should give back the key when not present', function (done) {
+                const theKey="my title 2"
+                const title = i18n.t(theKey)
+                expect(title).to.eql(theKey)
+                done();
+            });
         });
     });
 });
