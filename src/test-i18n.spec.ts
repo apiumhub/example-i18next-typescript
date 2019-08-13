@@ -8,13 +8,15 @@ import {map, take} from 'rxjs/operators';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/bindNodeCallback';
 import Observer = Rx.Observer;
+import {Module} from "i18next";
 
 describe("my first test", () => {
     describe("looked up a translation", () => {
         it("should give the correct literal", (done) => {
             //load the default language, which is in http://127.0.0.1:8080/assets/i18n/en.json:
+            console.log(typeof(Backend));
             i18n
-                .use(Backend)
+                .use(<Module> <any> Backend)
                 .init({
                     lng: 'en',
                     debug: true,
@@ -33,7 +35,7 @@ describe("my first test", () => {
 
         it("should give the correct literal with Rx Observable", (done) => {
             i18n
-                .use(Backend)
+                .use(<Module> <any> Backend)
                 .init({
                     lng: 'en',
                     debug: true,
@@ -51,7 +53,7 @@ describe("my first test", () => {
         });
         const initi18Next=(languageFilesUrl:string)=>{
             i18n
-                .use(Backend)
+                .use(<Module> <any> Backend)
                 .init({
                     lng: 'en',
                     debug: true,
