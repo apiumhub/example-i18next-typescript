@@ -3,3 +3,4 @@ node_modules
 *.iml
 **/*.js
 **/*.js.map
+!public/i18nextify.js
