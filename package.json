@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "http-server --cors=*",
+    "serve": "http-server --cors",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
