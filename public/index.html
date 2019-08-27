@@ -31,13 +31,16 @@
 	                    return numeral(value).format(format)
 	                }
                     try {
-	                    //declare the timezone of the date in text as CET (so no DST problem):
+	                    //declare the timezone of the source date in text as CET (so no DST problem):
+	                    //they come from database!!
+	                    //the best would be save them with UTC
 						var theDate=moment.tz(value, 'Europe/Madrid')
 						if (theDate.isValid()) return theDate
+									//fix the appearance
 									.locale(locale)
-									//change timezone when in another country
+									//change timezone when in another country, for example Los Angeles
 									.tz('America/Los_Angeles')
-									//guess from the Browser the current timezone
+									//in production, guess from the Browser the current timezone:
 									//.tz(moment.tz.guess(true))
 									.format(format);
 						return value;
