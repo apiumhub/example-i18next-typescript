@@ -14,7 +14,7 @@
             },
             interpolation: {
                 /**
-                 * when interpolates dates (variable {{date}}) goes this way
+                 * when interpolates variables with comma {{date,}}) goes this way
                  * @param value
                  * @param format
                  * @param locale
@@ -22,6 +22,11 @@
                  */
                 format(value, format, locale) {
                     console.log(arguments)
+	                if (!isNaN(value))
+	                {
+	                    //TODO: check if currency!!
+	                    return value.toLocaleString(locale)
+	                }
                     try {
 						var theDate=moment(value)
 						if (theDate.isValid()) return theDate.locale(locale).format(format);
@@ -49,6 +54,7 @@
 <div id="localize-date">I was born in <span i18next-options='{"date": "22/08/2018"}'>{{- date}}</span></div>
 <div id="localize-date-2">I was born in <span i18next-options='{"date": "2018-08-22"}'>nacimiento</span></div>
 <div id="localize-date-3">I was born in <span i18next-options='{"date": "2018-08-22"}'>{{- date, LLLL}}</span></div>
+<div id="localize-currency" i18next-options='{"number": "3000.10"}'>{{- number,}}</span></div>
 
 
 <!--
