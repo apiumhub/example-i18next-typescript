@@ -4,5 +4,7 @@
 	"another title": "Otro título",
 	"Works on title": "va con el título y el alt",
 	"I am": "Soy",
-	"and I work in": "y trabajo en"
+	"and I work in": "y trabajo en",
+	"I was born in": "Nací el",
+	"nacimiento": "{{- date, DD-MM-YYYY}}"
 }
