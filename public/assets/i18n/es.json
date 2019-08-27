@@ -6,5 +6,6 @@
 	"I am": "Soy",
 	"and I work in": "y trabajo en",
 	"I was born in": "Nací el",
+	"Hi, {{name}}": "Hola, {{name}}",
 	"nacimiento": "{{- date, DD-MM-YYYY}}"
 }

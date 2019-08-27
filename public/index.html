@@ -8,8 +8,28 @@
 	<script language="JavaScript">
         window.i18nextify.init({
             backend: {
-	            keyAttr: 'i18next-key', //the key overrides
+                keyAttr: 'i18next-key', //the key overrides
                 loadPath: 'http://127.0.0.1:8080/assets/i18n/{{lng}}.json'
+            },
+            interpolation: {
+                /**
+                 * when interpolates goes this way
+                 * @param value
+                 * @param format
+                 * @param locale
+                 * @returns {*}
+                 */
+                format(value, format, locale) {
+                    try {
+						var theDate=moment(value)
+						if (theDate.isValid()) return theDate.format(format);
+						return value;
+                    } catch(e)
+                    {
+                        return value;
+                    }
+                    return value
+                }
             }
         });
 	</script>
@@ -23,8 +43,9 @@
 
 <a href="#" title="Works on title" alt="Works on title">hover me</a>
 <div id="text-to-translate-with-name">I am <span>Christian</span> and I work in <span>Dexeus</span></div>
+<div id="non-date-interpolation" i18next-options='{"name": "Christian"}'>Hi, {{name}}</span></div>
 <div id="localize-date">I was born in <span i18next-options='{"date": "22/08/2018"}'>{{- date}}</span></div>
-<div id="localize-date-2">I was born in <span i18next-options='{"date": "22/08/2018"}'>nacimiento</span></div>
+<div id="localize-date-2">I was born in <span i18next-options='{"date": "2018-08-22"}'>nacimiento</span></div>
 
 
 <!--
