@@ -1,5 +1,6 @@
 {
 	"title": "Translation demo",
 	"my title": "Translation demo",
-	"I am": "I am"
+	"I am": "I am",
+	"nacimiento": "{{- date, lll}}"
 }
