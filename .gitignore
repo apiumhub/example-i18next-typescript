@@ -8,3 +8,4 @@ node_modules
 !public/i18nextify.js
 !public/locales.min.js
 !public/numeral.min.js
+!public/moment-timezone-with-data-1970-2030.js

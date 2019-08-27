@@ -7,6 +7,7 @@
 	<script src="./numeral.min.js"></script>
 	<script src="./locales.min.js"></script>
 	<script src="./moment-with-locales.js"></script>
+	<script src="./moment-timezone-with-data-1970-2030.js"></script>
 	<script src="./i18nextify.js"></script>
 	<script language="JavaScript">
         window.i18nextify.init({
@@ -31,7 +32,13 @@
 	                }
                     try {
 						var theDate=moment(value)
-						if (theDate.isValid()) return theDate.locale(locale).format(format);
+						if (theDate.isValid()) return theDate
+									.utcOffset('+02:00')
+									.local()
+									.locale(locale)
+									//.tz('America/Los_Angeles')
+									.tz(moment.tz.guess())
+									.format(format);
 						return value;
                     } catch(e)
                     {
