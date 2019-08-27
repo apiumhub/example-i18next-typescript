@@ -1,0 +1,11 @@
+{
+	"title": "Bản dịch thử",
+	"my title": "Bản dịch thử",
+	"another title": "Tiêu đề khác",
+	"Works on title": "đi với tiêu đề và alt",
+	"I am": "Tôi là",
+	"and I work in": "và tôi làm việc tại",
+	"I was born in": "Tôi sinh ra",
+	"Hi, {{name}}": "Xin chào, {{name}}",
+	"nacimiento": "{{- date, lll}}"
+}
