@@ -6,3 +6,5 @@ node_modules
 !public/moment-with-locales.js
 !public/moment.js
 !public/i18nextify.js
+!public/locales.min.js
+!public/numeral.min.js

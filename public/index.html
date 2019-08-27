@@ -4,6 +4,8 @@
 	<!-- no problem either: <meta charset="ISO-8859-1">-->
 	<meta charset="UTF-8">
 	<title>test</title>
+	<script src="./numeral.min.js"></script>
+	<script src="./locales.min.js"></script>
 	<script src="./moment-with-locales.js"></script>
 	<script src="./i18nextify.js"></script>
 	<script language="JavaScript">
@@ -25,7 +27,9 @@
 	                if (!isNaN(value))
 	                {
 	                    //TODO: check if currency!!
-	                    return value.toLocaleString(locale)
+		                console.log("found a number")
+		                numeral.locale(locale)
+	                    return numeral(value).format('0,0.00')
 	                }
                     try {
 						var theDate=moment(value)
@@ -54,7 +58,7 @@
 <div id="localize-date">I was born in <span i18next-options='{"date": "22/08/2018"}'>{{- date}}</span></div>
 <div id="localize-date-2">I was born in <span i18next-options='{"date": "2018-08-22"}'>nacimiento</span></div>
 <div id="localize-date-3">I was born in <span i18next-options='{"date": "2018-08-22"}'>{{- date, LLLL}}</span></div>
-<div id="localize-currency" i18next-options='{"number": "3000.10"}'>{{- number,}}</span></div>
+<div id="localize-currency" i18next-options='{"number": "3000.23"}'>{{number,}}</span></div>
 
 
 <!--
