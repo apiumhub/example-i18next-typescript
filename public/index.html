@@ -33,11 +33,11 @@
                     try {
 						var theDate=moment(value)
 						if (theDate.isValid()) return theDate
-									.utcOffset('+02:00')
-									.local()
+									//.utcOffset('+02:00')
+									//.local()
 									.locale(locale)
 									//.tz('America/Los_Angeles')
-									.tz(moment.tz.guess())
+									.tz(moment.tz.guess(true))
 									.format(format);
 						return value;
                     } catch(e)
