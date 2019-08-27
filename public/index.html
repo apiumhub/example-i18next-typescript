@@ -31,13 +31,14 @@
 	                    return numeral(value).format(format)
 	                }
                     try {
-						var theDate=moment(value)
+	                    //declare the timezone of the date in text as CET (so no DST problem):
+						var theDate=moment.tz(value, 'Europe/Madrid')
 						if (theDate.isValid()) return theDate
-									//.utcOffset('+02:00')
-									//.local()
 									.locale(locale)
-									//.tz('America/Los_Angeles')
-									.tz(moment.tz.guess(true))
+									//change timezone when in another country
+									.tz('America/Los_Angeles')
+									//guess from the Browser the current timezone
+									//.tz(moment.tz.guess(true))
 									.format(format);
 						return value;
                     } catch(e)
