@@ -38,17 +38,17 @@
                  * @returns {*}
                  */
                 format(value, format, locale) {
-                    console.log(arguments)
+                    console.log(arguments);
 	                if (!isNaN(value))
 	                {
-		                numeral.locale(locale)
-	                    return numeral(value).format(format)
+		                numeral.locale(locale);
+	                    return numeral(value).format(format);
 	                }
                     try {
 	                    //declare the timezone of the source date in text as CET (so no DST problem):
 	                    //they come from database!!
 	                    //the best would be save them with UTC
-	                    var theDate=moment.tz(value, 'Europe/Madrid')
+	                    var theDate=moment.tz(value, 'Europe/Madrid');
 						if (theDate.isValid())
 						{
 						    if (!format.toBeLocalized()) return formatDate(theDate, locale, format);
@@ -66,7 +66,7 @@
                         console.error(e);
                         return value;
                     }
-                    return value
+                    return value;
                 }
             }
         });
