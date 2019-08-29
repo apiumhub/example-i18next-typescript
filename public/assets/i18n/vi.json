@@ -9,5 +9,8 @@
 	"Hi, {{name}}": "Xin chào, {{name}}",
 	"nacimiento": "{{- date, lll}}",
 	"localized": "nội địa hóa",
-	"not localized": "không nội địa hóa"
+	"not localized": "không nội địa hóa",
+	"Goodmorning": "Chào buổi sáng",
+	", welcome in": ", chào mừng bạn đến",
+	"Goodmorning {{name}}, welcome in {{company}}": "Chào buổi sáng {{name}}, chào mừng bạn đến {{company}}"
 }

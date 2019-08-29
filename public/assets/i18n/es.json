@@ -9,5 +9,8 @@
 	"Hi, {{name}}": "Hola, {{name}}",
 	"nacimiento": "{{- date, lll}}",
 	"localized": "localizada",
-	"not localized": "no localizada"
+	"not localized": "no localizada",
+	"Goodmorning": "Buenos días",
+	", welcome in": ", bienvenido en",
+	"Goodmorning {{name}}, welcome in {{company}}": "Buenos días {{name}}, bienvenido en {{company}}"
 }

@@ -81,6 +81,15 @@
 
 <a href="#" title="Works on title" alt="Works on title">hover me</a>
 <div id="text-to-translate-with-name">I am <span>Christian</span> and I work in <span>Dexeus</span></div>
+<br/>
+<div id="text-to-translate-with-name-2">Goodmorning <span>Marc</span>, welcome in <span>Dexeus</span></div>
+<br/>
+<br/>
+<div id="text-to-translate-with-name-2-interpolated"
+     i18next-options='{"name": "Marc", "company": "dexeus"}'>
+	Goodmorning {{name}}, welcome in {{company}}
+</div>
+<br/>
 <div id="non-date-interpolation" i18next-options='{"name": "Christian"}'>Hi, {{name}}</span></div>
 <div id="localize-date">I was born in <span i18next-options='{"date": "22/08/2018"}'>{{- date}}</span></div>
 <div id="localize-date-2">I was born in <span i18next-options='{"date": "2018-08-22"}'>nacimiento</span></div>
