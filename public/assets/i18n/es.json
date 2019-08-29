@@ -7,5 +7,7 @@
 	"and I work in": "y trabajo en",
 	"I was born in": "Nací el",
 	"Hi, {{name}}": "Hola, {{name}}",
-	"nacimiento": "{{- date, lll}}"
+	"nacimiento": "{{- date, lll}}",
+	"localized": "localizada",
+	"not localized": "no localizada"
 }

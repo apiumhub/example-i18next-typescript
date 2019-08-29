@@ -10,6 +10,20 @@
 	<script src="./moment-timezone-with-data-1970-2030.js"></script>
 	<script src="./i18nextify.js"></script>
 	<script language="JavaScript">
+		function formatDate(theDate, locale, format)
+		{
+			return theDate
+						//fix the appearance
+						.locale(locale)
+						.format(format)
+		}
+		var LOCALIZED="_LOCALIZED";
+		String.prototype.toBeLocalized=function() {
+			return this.includes("_LOCALIZED");
+		}
+		String.prototype.cleanFormat=function() {
+			return this.replace("_LOCALIZED", "");
+		}
         window.i18nextify.init({
             backend: {
                 keyAttr: 'i18next-key', //the key overrides
@@ -34,18 +48,22 @@
 	                    //declare the timezone of the source date in text as CET (so no DST problem):
 	                    //they come from database!!
 	                    //the best would be save them with UTC
-						var theDate=moment.tz(value, 'Europe/Madrid')
-						if (theDate.isValid()) return theDate
-									//fix the appearance
-									.locale(locale)
-									//change timezone when in another country, for example Los Angeles
-									.tz('America/Los_Angeles')
-									//in production, guess from the Browser the current timezone:
-									//.tz(moment.tz.guess(true))
-									.format(format);
+	                    var theDate=moment.tz(value, 'Europe/Madrid')
+						if (theDate.isValid())
+						{
+						    if (!format.toBeLocalized()) return formatDate(theDate, locale, format);
+						    return theDate
+								    .locale(locale)
+                                    //change timezone when in another country, for example Los Angeles
+                                    .tz('America/Los_Angeles')
+                                    //in production, guess from the Browser the current timezone:
+                                    //.tz(moment.tz.guess(true))
+								    .format(format.cleanFormat())
+						}
 						return value;
                     } catch(e)
                     {
+                        console.error(e);
                         return value;
                     }
                     return value
@@ -66,7 +84,8 @@
 <div id="non-date-interpolation" i18next-options='{"name": "Christian"}'>Hi, {{name}}</span></div>
 <div id="localize-date">I was born in <span i18next-options='{"date": "22/08/2018"}'>{{- date}}</span></div>
 <div id="localize-date-2">I was born in <span i18next-options='{"date": "2018-08-22"}'>nacimiento</span></div>
-<div id="localize-date-3">I was born in <span i18next-options='{"date": "2018-08-22"}'>{{- date, LLLL}}</span></div>
+<div id="localize-date-3">localized <span i18next-options='{"date": "2018-08-22"}'>{{- date, LLLL_LOCALIZED}}</span></div>
+<div id="dont-localize-date">not localized <span i18next-options='{"date": "2018-08-22"}'>{{- date, LLLL}}</span></div>
 <div id="localize-number" i18next-options='{"number": "300023e-2"}'>{{number,0,0.00}}</span></div>
 <div id="localize-currency" i18next-options='{"number": "300023e-2"}'>{{number,$0,0.00}}</span></div>
 
