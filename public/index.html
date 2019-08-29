@@ -19,10 +19,10 @@
 		}
 		var LOCALIZED="_LOCALIZED";
 		String.prototype.toBeLocalized=function() {
-			return this.includes("_LOCALIZED");
+			return this.includes(LOCALIZED);
 		}
 		String.prototype.cleanFormat=function() {
-			return this.replace("_LOCALIZED", "");
+			return this.replace(LOCALIZED, "");
 		}
         window.i18nextify.init({
             backend: {
