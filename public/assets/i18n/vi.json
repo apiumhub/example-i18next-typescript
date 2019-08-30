@@ -7,7 +7,7 @@
 	"and I work in": "và tôi làm việc tại",
 	"I was born in": "Tôi sinh ra",
 	"Hi, {{name}}": "Xin chào, {{name}}",
-	"nacimiento": "{{- date, lll}}",
+	"nacimiento": "{{- date, MM-DD-YY }}",
 	"localized": "nội địa hóa",
 	"not localized": "không nội địa hóa",
 	"Goodmorning": "Chào buổi sáng",

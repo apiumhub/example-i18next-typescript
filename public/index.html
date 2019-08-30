@@ -92,9 +92,13 @@
 <br/>
 <div id="non-date-interpolation" i18next-options='{"name": "Christian"}'>Hi, {{name}}</span></div>
 <div id="localize-date">I was born in <span i18next-options='{"date": "22/08/2018"}'>{{- date}}</span></div>
-<div id="localize-date-2">I was born in <span i18next-options='{"date": "2018-08-22"}'>nacimiento</span></div>
+<div id="localize-date-2">I was born in
+	<span i18next-options='{"date": "2018-08-22"}'>nacimiento</span>
+</div>
 <div id="localize-date-3">localized <span i18next-options='{"date": "2018-08-22"}'>{{- date, LLLL_LOCALIZED}}</span></div>
 <div id="dont-localize-date">not localized <span i18next-options='{"date": "2018-08-22"}'>{{- date, LLLL}}</span></div>
+<div id="dont-localize-date-but-locale">not localized <span i18next-options='{"date": "2018-08-22"}'>{{- date, l}}</span></div>
+<div id="dont-localize-date-but-locale-2">not localized <span i18next-options='{"date": "2018-08-22"}'>{{- date, LLLL}}</span></div>
 <div id="localize-number" i18next-options='{"number": "300023e-2"}'>{{number,0,0.00}}</span></div>
 <div id="localize-currency" i18next-options='{"number": "300023e-2"}'>{{number,$0,0.00}}</span></div>
 
